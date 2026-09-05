@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Security Dashboard - MailGuard AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🛡️ MailGuard <span>AI</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/analyze">
+            Analyze
+        </a>
+
+        <a href="/history"
+           class="active">
+            History
+        </a>
+
+        <button id="languageBtn">
+            தமிழ்
+        </button>
+
+    </div>
+
+</nav>
+
+
+<main class="dashboard">
+
+    <div class="page-title">
+
+        <div class="badge">
+            📊 SECURITY DASHBOARD
+        </div>
+
+        <h1>
+            Analysis History
+        </h1>
+
+        <p>
+            Monitor your email threat analysis activity.
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-stats">
+
+        <div class="dash-card">
+
+            <span>📧</span>
+
+            <h2>{{ total }}</h2>
+
+            <p>Total Scans</p>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <span>🚨</span>
+
+            <h2>{{ high_risk }}</h2>
+
+            <p>High Risk</p>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <span>⚠️</span>
+
+            <h2>{{ suspicious }}</h2>
+
+            <p>Suspicious</p>
+
+        </div>
+
+
+        <div class="dash-card">
+
+            <span>✅</span>
+
+            <h2>{{ safe }}</h2>
+
+            <p>Likely Safe</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="history-header">
+
+        <h2>
+            Recent Analysis
+        </h2>
+
+        <button
+            onclick="clearHistory()"
+            class="clear-btn">
+
+            🗑️ Clear History
+
+        </button>
+
+    </div>
+
+
+    {% if history %}
+
+    <div class="history-list">
+
+        {% for item in history %}
+
+        <div class="history-item">
+
+            <div class="history-main">
+
+                <div class="mail-icon">
+                    📧
+                </div>
+
+                <div>
+
+                    <h3>
+                        {{ item.subject }}
+                    </h3>
+
+                    <p>
+                        From: {{ item.sender }}
+                    </p>
+
+                    <small>
+                        {{ item.time }}
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="history-category">
+
+                <span>
+                    {{ item.category }}
+                </span>
+
+            </div>
+
+
+            <div class="history-risk">
+
+                <strong>
+                    {{ item.risk }}%
+                </strong>
+
+                <small>
+                    {{ item.result }}
+                </small>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="empty-state">
+
+        <div>
+            📭
+        </div>
+
+        <h2>
+            No emails analyzed yet
+        </h2>
+
+        <p>
+            Start your first analysis to build
+            your security dashboard.
+        </p>
+
+        <a href="/analyze"
+           class="primary-btn">
+
+            Analyze Email
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</main>
+
+
+<footer>
+
+    <h3>🛡️ MailGuard AI</h3>
+
+    <p>
+        Your intelligent email security assistant.
+    </p>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

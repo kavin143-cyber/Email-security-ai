@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MailGuard AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🛡️ MailGuard <span>AI</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/" class="active">Home</a>
+
+        <a href="/analyze">
+            Analyze
+        </a>
+
+        <a href="/history">
+            History
+        </a>
+
+        <button id="languageBtn">
+            தமிழ்
+        </button>
+
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🤖 AI-POWERED EMAIL SECURITY
+        </div>
+
+        <h1>
+            Detect
+            <span>Fake & Phishing</span>
+            Emails
+        </h1>
+
+        <p id="heroText">
+
+            Protect yourself from suspicious emails,
+            scams and phishing attempts using intelligent
+            email threat analysis.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/analyze"
+               class="primary-btn">
+                🔍 Analyze Email
+            </a>
+
+            <a href="/history"
+               class="secondary-btn">
+                📊 View Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="security-circle">
+
+            <div class="shield-icon">
+                🛡️
+            </div>
+
+            <div class="scan-line"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="stats">
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            📧
+        </div>
+
+        <div>
+
+            <h2>{{ total }}</h2>
+
+            <p>Emails Analyzed</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon danger-icon">
+            🚨
+        </div>
+
+        <div>
+
+            <h2>{{ high_risk }}</h2>
+
+            <p>High Risk</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon safe-icon">
+            ✅
+        </div>
+
+        <div>
+
+            <h2>{{ safe }}</h2>
+
+            <p>Likely Safe</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features">
+
+    <div class="section-heading">
+
+        <p>SMART SECURITY</p>
+
+        <h2>Powerful Detection Features</h2>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>Intelligent Analysis</h3>
+
+            <p>
+                Analyze sender, subject and message
+                patterns to identify suspicious signals.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔗
+            </div>
+
+            <h3>Link Detection</h3>
+
+            <p>
+                Detect external and shortened links
+                commonly associated with suspicious emails.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🧠
+            </div>
+
+            <h3>Explainable Results</h3>
+
+            <p>
+                Understand why an email received its
+                particular risk score.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📊
+            </div>
+
+            <h3>Security Dashboard</h3>
+
+            <p>
+                Track previous analysis results and
+                understand your email security activity.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>🛡️ MailGuard AI</h3>
+
+    <p>
+        AI-powered email threat detection prototype
+    </p>
+
+    <small>
+        Hackathon Project • 2026
+    </small>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
